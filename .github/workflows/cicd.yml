@@ -26,9 +26,9 @@ jobs:
         with:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/flask-example:latest
-      - name: Deploy Stage
-        uses: fjogeleit/http-request-action@v1
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          url: 'https://api.render.com/v1/services?limit=20'
-          method: 'GET'
-          customHeaders: '{"Content-Type": "application/json", "Authorization": "Bearer  ${{ secrets.RENDER_TOKEN }}"}'
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_TOKEN}}
+          wait-for-success: true
