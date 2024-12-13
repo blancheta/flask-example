@@ -31,5 +31,4 @@ jobs:
         with:
           url: 'https://api.render.com/v1/services?limit=20'
           method: 'GET'
-          customHeaders: |
-            '{"Content-Type": "application/json", "Authorization": "Bearer  ${{ secrets.RENDER_TOKEN }}"}'
+          customHeaders: '{"Content-Type": "application/json", "Authorization": "Bearer  ${{ secrets.RENDER_TOKEN }}"}'
